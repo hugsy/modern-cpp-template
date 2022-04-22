@@ -25,6 +25,7 @@ option(DEBUG                       "Enable Debug"                               
 option(BUILD_TOOLKIT               "Compile the executables of pwn++ toolkit"                 ON)
 option(BUILD_TESTING               "Compile the test suite"                                   ON)
 
+set(PROJECT_ROOT_DIR ${CMAKE_CURRENT_LIST_DIR})
 
 
 #
