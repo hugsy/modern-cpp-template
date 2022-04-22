@@ -7,11 +7,11 @@ set(CMAKE_INTERPROCEDURAL_OPTIMIZATION True)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 project(
-    MyProject
+    CHANGEME
     LANGUAGES CXX
     VERSION 0.1.0
     DESCRIPTION "MyProject"
-    HOMEPAGE_URL https://github.com/hugsy/MyProject
+    HOMEPAGE_URL https://github.com/hugsy/changeme
 )
 
 set(PROJECT_AUTHOR hugsy)
