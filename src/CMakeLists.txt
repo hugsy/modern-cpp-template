@@ -1,3 +1,6 @@
+project(ProjectLib)
+
+set(PROJECT_LIB_SRC_DIR ${PROJECT_ROOT_DIR}/src CACHE INTERNAL "PROJECT_LIB_SRC_DIR")
 
 #
 # Create the constants.hpp macro file
