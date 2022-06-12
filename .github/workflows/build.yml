@@ -1,15 +1,17 @@
-name: CI/CD Action
+name: Build Project
 
 env:
   DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-  REPO: hugsy/changeme
+  PROJECT: changeme
+  AUTHOR: hugsy
+  REPO: ${{ env.AUTHOR }}/${{ env.PROJECT }}
   VERBOSE: "1"
-  CMAKE_FLAGS: "-DDEBUG=OFF -DBUILD_TOOLKIT=ON"
+  CMAKE_FLAGS: "-DDEBUG=ON -DBUILD_TOOLKIT=ON"
 
 on: [push, pull_request]
 
 jobs:
-  mini_build:
+  build:
     name: "${{ matrix.os }}/${{ matrix.platform }}/${{ matrix.configuration }}"
 
     strategy:
@@ -91,7 +93,7 @@ jobs:
     - name: Publish artifact
       uses: actions/upload-artifact@v2
       with:
-        name: pwn++_mini_${{ env.GITHUB_REF_SLUG }}_${{ matrix.os }}_${{ matrix.platform }}_${{ env.GITHUB_SHA_SHORT }}
+        name: ${{ env.PROJECT }}_${{ env.GITHUB_REF_SLUG }}_${{ matrix.os }}_${{ matrix.platform }}_${{ env.GITHUB_SHA_SHORT }}
         path: artifact/
 
     - name: Notify on success
