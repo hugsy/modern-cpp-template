@@ -1,6 +1,16 @@
-project(ProjectTools)
+project(Examples)
 
-#
-# Build test tools
-#
-set(PROJECT_TOOLS_DIR ${PROJECT_ROOT_DIR}/tools CACHE INTERNAL "PROJECT_TOOLS_DIR")
+set(PROJECT_EXAMPLES_DIR ${PROJECT_ROOT_DIR}/examples CACHE INTERNAL "PROJECT_EXAMPLES_DIR")
+
+set(
+    EXAMPLES_DIRS
+
+    # Populate here
+)
+
+foreach(EXAMPLE ${EXAMPLES_DIRS})
+    file(GLOB SOURCE_FILES ${PROJECT_EXAMPLES_DIR}/${EXAMPLE}/*.cpp ${PROJECT_EXAMPLES_DIR}/${EXAMPLE}/*.asm)
+    add_executable(${EXAMPLE} WIN32 ${SOURCE_FILES})
+    install(TARGETS ${EXAMPLE} DESTINATION Examples)
+    install(FILES $<TARGET_PDB_FILE:${EXAMPLE}> DESTINATION Examples/Debug OPTIONAL)
+endforeach()

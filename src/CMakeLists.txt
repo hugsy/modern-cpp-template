@@ -1,4 +1,6 @@
-project(ProjectLib)
+project(ChangeMe
+        LANGUAGES CXX
+        VERSION 0.1.0)
 
 set(PROJECT_LIB_SRC_DIR ${PROJECT_ROOT_DIR}/src CACHE INTERNAL "PROJECT_LIB_SRC_DIR")
 
@@ -6,8 +8,8 @@ set(PROJECT_LIB_SRC_DIR ${PROJECT_ROOT_DIR}/src CACHE INTERNAL "PROJECT_LIB_SRC_
 # Create the constants.hpp macro file
 #
 configure_file(
-    "constants.hpp.in"
-    "constants.hpp"
+    "${PROJECT_LIB_SRC_DIR}/constants.hpp.in"
+    "${PROJECT_LIB_SRC_DIR}/constants.hpp"
     NEWLINE_STYLE WIN32
 )
 
@@ -15,11 +17,9 @@ configure_file(
 # Print out cmake compile info
 #
 message(STATUS "CMAKE_MODULE_PATH:                 ${CMAKE_MODULE_PATH}")
-message(STATUS "CMAKE_CXX_LINK_EXECUTABLE:         ${CMAKE_CXX_LINK_EXECUTABLE}")
-message(STATUS "CMAKE_CXX_LINK_FLAGS:              ${CMAKE_CXX_LINK_FLAGS}")
-message(STATUS "CMAKE_EXE_LINKER_FLAGS:            ${CMAKE_EXE_LINKER_FLAGS}")
-message(STATUS "CMAKE_EXE_LINKER_FLAGS_RELEASE:    ${CMAKE_EXE_LINKER_FLAGS_RELEASE}")
-message(STATUS "CMAKE_SHARED_LINKER_FLAGS:         ${CMAKE_SHARED_LINKER_FLAGS}")
-message(STATUS "CMAKE_SHARED_LINKER_FLAGS_RELEASE: ${CMAKE_SHARED_LINKER_FLAGS_RELEASE}")
 message(STATUS "CMAKE_SYSTEM_PROCESSOR:            ${CMAKE_SYSTEM_PROCESSOR}")
 message(STATUS "CMAKE_SYSTEM_NAME:                 ${CMAKE_SYSTEM_NAME}")
+
+add_library(${PROJECT_NAME} STATIC lib.cpp)
+
+install(TARGETS ${PROJECT_NAME} DESTINATION ${PROJECT_NAME}/Library)
