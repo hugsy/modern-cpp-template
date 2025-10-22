@@ -4,7 +4,7 @@ env:
   DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
   PROJECT: changeme
   AUTHOR: hugsy
-  REPO: ${{ env.AUTHOR }}/${{ env.PROJECT }}
+  REPO: hugsy/changeme
   VERBOSE: "1"
   CMAKE_FLAGS: "-DDEBUG=ON -DBUILD_TOOLKIT=ON"
 
