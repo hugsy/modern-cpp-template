@@ -19,31 +19,18 @@ set(CXX_STANDARD 23)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-option(DEBUG                       "Enable Debug"                                             ON)
 option(BUILD_EXAMPLES              "Compile the examples"                                     ON)
-option(BUILD_TESTING               "Compile the test suite"                                   ON)
+option(BUILD_TESTING               "Compile the test suite"                                   OFF)
 
 set(PROJECT_ROOT_DIR ${CMAKE_CURRENT_LIST_DIR})
 
-
-#
-# Build main part
-#
 add_subdirectory(src)
 
-
-#
-# Build unit tests
-#
 if(BUILD_TESTING)
     include(CTest)
     add_subdirectory(tests)
 endif()
 
-
-#
-# Build toolkit
-#
 if(BUILD_EXAMPLES)
     add_subdirectory(examples)
 endif()
