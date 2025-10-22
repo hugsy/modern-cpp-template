@@ -22,4 +22,12 @@ message(STATUS "CMAKE_SYSTEM_NAME:                 ${CMAKE_SYSTEM_NAME}")
 
 add_library(${PROJECT_NAME} STATIC lib.cpp)
 
+set_target_properties(
+    ${PROJECT_NAME}
+    PROPERTIES
+    CXX_STANDARD 23
+)
+
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_23)
+
 install(TARGETS ${PROJECT_NAME} DESTINATION ${PROJECT_NAME}/Library)
