@@ -12,7 +12,7 @@ set(COMMON_TEST_DIR ${PROJECT_TEST_DIR})
 set(
     SOURCE_FILES
 
-    ${COMMON_TEST_DIR}/main.cpp
+    ${COMMON_TEST_DIR}/Main.cpp
 )
 
 
@@ -22,7 +22,6 @@ if(MSVC)
         SOURCE_FILES
 
         ${SOURCE_FILES}
-
     )
 
     add_compile_definitions(_UNICODE UNICODE)
@@ -32,7 +31,6 @@ else()
         SOURCE_FILES
 
         ${SOURCE_FILES}
-
     )
 
     add_compile_definitions(_GNU_SOURCE=1)
